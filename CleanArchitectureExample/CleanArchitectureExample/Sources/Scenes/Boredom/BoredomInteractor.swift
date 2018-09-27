@@ -7,11 +7,15 @@ protocol BoredomInteractorOutput: class {
     func handle(error: Error)
 }
 
-class BoredomInteractor: BoredomInteractorInput {
+final class BoredomInteractor: BoredomInteractorInput {
+
+    // MARK: - Properties
+
     weak var output: BoredomInteractorOutput?
 
     var worker: BoredomWorker?
-    // MARK: Do something
+
+    // MARK: - BoredomInteractorInput
 
     func getActivity(request: Boredom.GetActivity.Request) {
         worker = BoredomWorker(apiClient: DefaultAPIClient())

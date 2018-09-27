@@ -5,15 +5,22 @@ protocol BoredomConfiguratorProtocol {
 }
 
 final class BoredomConfigurator: BoredomConfiguratorProtocol {
+
+    // MARK: - Properties
+
     private let router: BoredomRouter
     private let presenter: BoredomPresenter
     private let interactor: BoredomInteractor
+
+    // MARK: - Initialization
 
     init(router: BoredomRouter, presenter: BoredomPresenter, interactor: BoredomInteractor) {
         self.router = router
         self.presenter = presenter
         self.interactor = interactor
     }
+
+    // MARK: - BoredomConfiguratorProtocol
 
     func configure(viewController: BoredomViewController) {
         router.viewController = viewController

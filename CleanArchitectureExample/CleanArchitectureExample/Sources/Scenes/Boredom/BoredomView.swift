@@ -2,6 +2,8 @@ import UIKit
 
 final class BoredomView: View {
 
+    // MARK: - Properties
+
     private(set) lazy var addButton: UIBarButtonItem = {
         UIBarButtonItem(barButtonSystemItem: .add
             , target: nil, action: nil)
@@ -17,6 +19,8 @@ final class BoredomView: View {
 
         return tableView
     }()
+
+    // MARK: - Overrides
 
     override func setupViewHierarchy() {
         super.setupViewHierarchy()

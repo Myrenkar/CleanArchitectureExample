@@ -2,6 +2,8 @@ import UIKit
 
 final class BoredomCell: TableViewCell {
 
+    // MARK: - Properties
+
     private(set) lazy var nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
 
@@ -52,6 +54,8 @@ final class BoredomCell: TableViewCell {
 
         return stackView
     }()
+
+    // MARK: - Overrides
 
     override func setupViewHierarchy() {
         super.setupViewHierarchy()

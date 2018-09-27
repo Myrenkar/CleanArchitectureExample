@@ -9,25 +9,26 @@ protocol BoredomViewControllerOutput: class {
 }
 
 final class BoredomViewController: ViewController {
+
+    // MARK: - Properties
+
     weak var output: BoredomViewControllerOutput?
     var router: BoredomRouter!
 
     private let boredomView = BoredomView()
+    private let dataSource: UITableViewDataSource & BoredTableViewDataSourceProtocol
     private let configurator: BoredomConfiguratorProtocol
 
-    private var activities: [Boredom.GetActivity.ViewModel] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.boredomView.tableView.reloadData()
-            }
-        }
-    }
+    // MARK: - Initialization
 
-    init(configurator: BoredomConfiguratorProtocol) {
+    init(configurator: BoredomConfiguratorProtocol, dataSource: UITableViewDataSource & BoredTableViewDataSourceProtocol = BoredTableViewDataSource()) {
         self.configurator = configurator
+        self.dataSource = dataSource
         super.init()
         configurator.configure(viewController: self)
     }
+
+    // MARK: - Overrides
 
     override func loadView() {
         view = boredomView
@@ -36,7 +37,7 @@ final class BoredomViewController: ViewController {
     override func setupProperties() {
         super.setupProperties()
 
-        boredomView.tableView.dataSource = self
+        boredomView.tableView.dataSource = dataSource
         boredomView.tableView.registerClass(BoredomCell.self)
     }
 
@@ -52,27 +53,12 @@ final class BoredomViewController: ViewController {
 
 }
 
-extension BoredomViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activities.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: BoredomCell = tableView.dequeue()
-        let currentActivity = activities[indexPath.row]
-
-        cell.nameLabel.text = currentActivity.activity
-        cell.typeLabel.text = currentActivity.type
-        cell.participantsLabel.text = "Participants: \(currentActivity.participants)"
-        cell.priceLabel.text = "Price: \(currentActivity.price)"
-
-        return cell
-    }
-}
-
 extension BoredomViewController: BoredomViewControllerInput {
     func appendActivity(viewModel: Boredom.GetActivity.ViewModel) {
-        self.activities.append(viewModel)
+        dataSource.add(item: viewModel)
+        DispatchQueue.main.async {
+            self.boredomView.tableView.reloadData()
+        }
     }
 }
 

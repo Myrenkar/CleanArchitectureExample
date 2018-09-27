@@ -38,6 +38,7 @@
 		73886067215CCF3C00168993 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73886066215CCF3C00168993 /* Reusable.swift */; };
 		73886069215CD0E600168993 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73886068215CD0E600168993 /* TableViewCell.swift */; };
 		7388606B215CD12E00168993 /* BoredomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388606A215CD12E00168993 /* BoredomCell.swift */; };
+		7388606D215CF61200168993 /* BoredTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7388606C215CF61200168993 /* BoredTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		73886066215CCF3C00168993 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		73886068215CD0E600168993 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7388606A215CD12E00168993 /* BoredomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredomCell.swift; sourceTree = "<group>"; };
+		7388606C215CF61200168993 /* BoredTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				7388602E215BE54300168993 /* BoredomViewController.swift */,
 				7388602B215BE54300168993 /* BoredomWorker.swift */,
 				7388606A215CD12E00168993 /* BoredomCell.swift */,
+				7388606C215CF61200168993 /* BoredTableViewDataSource.swift */,
 			);
 			path = Boredom;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				7388605B215CA85500168993 /* BoredomView.swift in Sources */,
 				73886033215BE54300168993 /* BoredomModels.swift in Sources */,
 				7388604A215C2F6A00168993 /* APIService.swift in Sources */,
+				7388606D215CF61200168993 /* BoredTableViewDataSource.swift in Sources */,
 				73886062215CCBD500168993 /* ApplicationDependencies.swift in Sources */,
 				73886067215CCF3C00168993 /* Reusable.swift in Sources */,
 				73886031215BE54300168993 /* BoredomWorker.swift in Sources */,

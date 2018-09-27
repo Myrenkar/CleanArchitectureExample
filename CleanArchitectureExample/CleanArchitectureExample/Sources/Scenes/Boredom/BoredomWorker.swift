@@ -4,12 +4,19 @@ protocol BoredomWorkerProtocol {
     func getActivities(request: APIRequest, completionHandler: @escaping (Result<Boredom.GetActivity.Response>) -> ())
 }
 
-class BoredomWorker: BoredomWorkerProtocol {
+final class BoredomWorker: BoredomWorkerProtocol {
+
+    // MARK: - Properties
+
     private let apiClient: APIClient
+
+    // MARK: - Initialization
 
     init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
+
+    // MARK: - BoredomWorkerProtocol
 
     func getActivities(request: APIRequest, completionHandler: @escaping (Result<Boredom.GetActivity.Response>) -> ()) {
         apiClient.perform(request: request) { result in

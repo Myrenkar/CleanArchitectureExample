@@ -7,6 +7,9 @@ protocol ApplicationDependenciesProvider {
 }
 
 final class DefaultApplicationDependenciesProvider: ApplicationDependenciesProvider {
+
+    // MARK: - ApplicationDependenciesProvider
+
     private(set) lazy var apiClient: APIClient = { [unowned self] in
         return DefaultAPIClient()
     }()

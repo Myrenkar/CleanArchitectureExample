@@ -5,11 +5,14 @@ protocol BoredomRoutingLogic {
 }
 
 final class BoredomRouter: NSObject, BoredomRoutingLogic {
+
+    // MARK: - Properties
+
     weak var viewController: BoredomViewController?
 
-    // MARK: Routing
+    // MARK: BoredomRoutingLogic
 
     func show(activityDetails activity: Boredom.GetActivity.Response) {
-        print(activity.type)
+        // TODO: Show details view controller
     }
 }
